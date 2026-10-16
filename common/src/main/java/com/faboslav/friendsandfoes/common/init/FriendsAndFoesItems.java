@@ -128,6 +128,16 @@ public final class FriendsAndFoesItems
 	public final static RegistryEntry<Item> WAXED_OXIDIZED_LIGHTNING_ROD = registerItem("waxed_oxidized_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_OXIDIZED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
 	*///?}
 
+	//? if =1.21.1 {
+	/*static {
+		for (var rod : List.of(EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD,
+			WAXED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD,
+			WAXED_OXIDIZED_LIGHTNING_ROD)) {
+			CONFIG_ITEMS.put(rod.getId(), () -> FriendsAndFoes.getConfig().enableLightningRods);
+		}
+	}
+	*///?}
+
 	//? if >=1.21.5 {
 	public final static RegistryEntry<Item> WILDFIRE_CROWN = registerItem("wildfire_crown", Item::new, () -> new Item.Properties().humanoidArmor(FriendsAndFoesArmorMaterials.WILDFIRE, ArmorType.HELMET).fireResistant());
 	//?} else if >=1.21.3 {

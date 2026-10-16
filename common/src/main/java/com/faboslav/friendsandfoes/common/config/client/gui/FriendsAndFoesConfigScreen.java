@@ -163,6 +163,11 @@ public final class FriendsAndFoesConfigScreen
 				.group(group("blocks", "copper_buttons")
 					.option(bool("enableCopperButtons", FriendsAndFoesConfig.ENABLE_COPPER_BUTTONS, () -> config.enableCopperButtons, value -> config.enableCopperButtons = value))
 					.build())
+				//? if =1.21.1 {
+				/*.group(group("blocks", "lightning_rods")
+					.option(bool("enableLightningRods", FriendsAndFoesConfig.ENABLE_LIGHTNING_RODS_DEFAULT_VALUE, () -> config.enableLightningRods, value -> config.enableLightningRods = value))
+					.build())
+				*///?}
 				.build())
 			.save(FriendsAndFoesConfig::save)
 			.build()

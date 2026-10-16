@@ -145,6 +145,9 @@ public class FriendsAndFoesItemGroups
 				).map(item -> item.get().getDefaultInstance()).forEach(event::add);
 			}
 
+			//? if =1.21.1 {
+			/*if (config.enableLightningRods) {
+			*///?}
 			//? if <=1.21.8 {
 			/*Stream.of(
 				FriendsAndFoesItems.EXPOSED_LIGHTNING_ROD,
@@ -155,6 +158,9 @@ public class FriendsAndFoesItemGroups
 				FriendsAndFoesItems.WAXED_WEATHERED_LIGHTNING_ROD,
 				FriendsAndFoesItems.WAXED_OXIDIZED_LIGHTNING_ROD
 			).map(item -> item.get().getDefaultInstance()).forEach(event::add);
+			*///?}
+			//? if =1.21.1 {
+			/*}
 			*///?}
 		} else if (event.type() == AddItemGroupEntriesEvent.Type.INGREDIENTS) {
 			Stream.of(
