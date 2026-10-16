@@ -24,6 +24,15 @@ public class FriendsAndFoesMixinPlugin implements IMixinConfigPlugin
 
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+		// The 1.21.1 Fabric build supplies its own recipe reload mixin because
+		// that Minecraft version uses byName/byType instead of the old recipes map.
+		// Detecting the platform-specific mixin class keeps NeoForge and other
+		// Minecraft versions on their existing implementation.
+		if (mixinClassName.equals("com.faboslav.friendsandfoes.common.mixin.RecipeManagerMixin")
+			&& this.isClassAvailable("com.faboslav.friendsandfoes.fabric.mixin.RecipeManagerMixin")) {
+			return false;
+		}
+
 		if (mixinClassName.equals("com.faboslav.friendsandfoes.common.mixin.IntegratedServerLoaderMixin")) {
 			return this.isClassAvailable("me.earth.mc_runtime_test.McRuntimeTest");
 		}
