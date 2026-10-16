@@ -65,7 +65,11 @@ public class FriendsAndFoesItemGroups
 				FriendsAndFoesItems.TUFF_GOLEM_SPAWN_EGG,
 				FriendsAndFoesItems.RASCAL_SPAWN_EGG,
 				FriendsAndFoesItems.WILDFIRE_SPAWN_EGG
-			).map(item -> item.get().getDefaultInstance()).forEach(event::add);
+			)
+			//? if =1.21.1 {
+			/*.filter(item -> FriendsAndFoesItems.CONFIG_ITEMS.getOrDefault(item.getId(), () -> true).getAsBoolean())
+			*///?}
+			.map(item -> item.get().getDefaultInstance()).forEach(event::add);
 		} else if (event.type() == AddItemGroupEntriesEvent.Type.NATURAL) {
 			Stream.of(
 				FriendsAndFoesItems.BUTTERCUP,

@@ -87,6 +87,25 @@ public final class FriendsAndFoesItems
 	public final static RegistryEntry<Item> TUFF_GOLEM_SPAWN_EGG = registerSpawnEgg("tuff_golem_spawn_egg", FriendsAndFoesEntityTypes.TUFF_GOLEM, 0xFFA0A297, 0xFF5D5D52);
 	public final static RegistryEntry<Item> WILDFIRE_SPAWN_EGG = registerSpawnEgg("wildfire_spawn_egg", FriendsAndFoesEntityTypes.WILDFIRE, 0xFF6C3100, 0xFFFFD528);
 
+	//? if =1.21.1 {
+	/*// Keep spawn eggs registered for existing worlds, but hide disabled mobs' eggs
+	// from both the mod tab and vanilla's Spawn Eggs tab.
+	static {
+		CONFIG_ITEMS.put(BARNACLE_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableBarnacle);
+		CONFIG_ITEMS.put(COPPER_GOLEM_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableCopperGolem);
+		CONFIG_ITEMS.put(CRAB_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableCrab);
+		CONFIG_ITEMS.put(GLARE_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableGlare);
+		CONFIG_ITEMS.put(ICEOLOGER_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableIceologer);
+		CONFIG_ITEMS.put(ILLUSIONER_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableIllusioner);
+		CONFIG_ITEMS.put(MAULER_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableMauler);
+		CONFIG_ITEMS.put(MOOBLOOM_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableMoobloom);
+		CONFIG_ITEMS.put(PENGUIN_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enablePenguin);
+		CONFIG_ITEMS.put(RASCAL_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableRascal);
+		CONFIG_ITEMS.put(TUFF_GOLEM_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableTuffGolem);
+		CONFIG_ITEMS.put(WILDFIRE_SPAWN_EGG.getId(), () -> FriendsAndFoes.getConfig().enableWildfire);
+	}
+	*///?}
+
 	public final static RegistryEntry<Item> BARNACLE_TOOTH = registerItem("barnacle_tooth", Item::new, Item.Properties::new);
 	public final static RegistryEntry<Item> BUTTERCUP = registerItem("buttercup", (properties) -> new BlockItem(FriendsAndFoesBlocks.BUTTERCUP.get(), properties), () -> new Item.Properties().stacksTo(64)/*? if >=26.3 {*/.compostable(ContextIntProviders.COMPOSTABLE_MEDIUM)/*?}*/);
 	public final static RegistryEntry<Item> CRAB_CLAW = registerItem("crab_claw", Item::new, Item.Properties::new);
