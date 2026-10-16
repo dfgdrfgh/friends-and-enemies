@@ -59,11 +59,23 @@ jobs:
                 run: ./gradlew :${{ matrix.mod_loader }}:${{ matrix.version }}:build
 
             -   name: "Upload artifacts"
+                id: uploaded-jar
                 uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
                 with:
                     name: ${{ steps.gradle-properties.outputs.MOD_ID }}-${{ matrix.mod_loader }}-${{ steps.gradle-properties.outputs.MOD_VERSION }}+mc${{ matrix.version }}
                     if-no-files-found: error
                     path: ./${{ matrix.mod_loader }}/versions/${{ matrix.version }}/build/libs/*.jar
+
+            -   name: "Show Fabric 1.21.1 JAR download"
+                if: ${{ matrix.mod_loader == 'fabric' && matrix.version == '1.21.1' }}
+                env:
+                    ARTIFACT_URL: ${{ steps.uploaded-jar.outputs.artifact-url }}
+                run: |
+                    echo "## Download Friends & Foes — Fabric 1.21.1" >> "$GITHUB_STEP_SUMMARY"
+                    echo "" >> "$GITHUB_STEP_SUMMARY"
+                    echo "[**Download the compiled JAR (ZIP artifact)**](${ARTIFACT_URL})" >> "$GITHUB_STEP_SUMMARY"
+                    echo "" >> "$GITHUB_STEP_SUMMARY"
+                    echo "Extract the ZIP and place the .jar in your Minecraft mods folder." >> "$GITHUB_STEP_SUMMARY"
 
     run-client:
         runs-on: ubuntu-latest
