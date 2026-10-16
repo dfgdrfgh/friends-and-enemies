@@ -37,8 +37,10 @@ stonecutter {
 		versions(*uniqueVersions.toTypedArray())
 
 		dists.forEach { (branchName, branchVersions) ->
-			branch(branchName) {
-				versions(*branchVersions.toTypedArray())
+			if (branchVersions.isNotEmpty()) {
+				branch(branchName) {
+					versions(*branchVersions.toTypedArray())
+				}
 			}
 		}
 	}
