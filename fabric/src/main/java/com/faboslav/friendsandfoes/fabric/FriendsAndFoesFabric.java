@@ -128,6 +128,9 @@ public final class FriendsAndFoesFabric implements ModInitializer
 
 		SetupEvent.EVENT.invoke(new SetupEvent(Runnable::run));
 
+		//? if = 1.21.1 {
+		/*FriendsAndFoesCreativeTabs1211.register();
+		*///?} else {
 		CreativeModeTabEvents.MODIFY_OUTPUT_ALL.register((itemGroup, entries) ->
 			AddItemGroupEntriesEvent.EVENT.invoke(
 				new AddItemGroupEntriesEvent(
@@ -138,6 +141,8 @@ public final class FriendsAndFoesFabric implements ModInitializer
 				)
 			)
 		);
+		//?}
+
 
 		LootTableEvents.MODIFY.register((
 			//? if >= 1.21.1 {
