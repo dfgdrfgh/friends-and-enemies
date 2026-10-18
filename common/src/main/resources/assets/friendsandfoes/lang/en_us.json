@@ -264,7 +264,7 @@
 	"yacl3.config.friendsandfoes:friendsandfoes.enablePoplarBeehive": "Enable poplar beehive",
 	"yacl3.config.friendsandfoes:friendsandfoes.enableWarpedBeehive": "Enable warped beehive",
 	"yacl3.config.friendsandfoes:friendsandfoes.enableCopperButtons": "Enable copper buttons",
-	"yacl3.config.friendsandfoes:friendsandfoes.enableLightningRods": "Enable modded lightning rods",
+	"yacl3.config.friendsandfoes:friendsandfoes.enableLightningRods": "Enable lightning rods",
 	"yacl3.config.friendsandfoes:friendsandfoes.enableBeekeeperVillagerProfession": "Enable beekeeper villager profession",
 	"yacl3.config.friendsandfoes:friendsandfoes.generateBeekeeperAreaStructureInVillages": "Generate beekeeper area structure in villages",
 	"yacl3.config.friendsandfoes:friendsandfoes.beekeeperAreaStructureWeight": "Beekeeper area structure spawn weight",
