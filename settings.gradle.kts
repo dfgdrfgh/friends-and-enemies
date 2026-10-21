@@ -16,10 +16,10 @@ plugins {
 	id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
-val commonVersions = providers.gradleProperty("stonecutter_enabled_common_versions").orNull?.split(",")?.map { it.trim() } ?: emptyList()
-val fabricVersions = providers.gradleProperty("stonecutter_enabled_fabric_versions").orNull?.split(",")?.map { it.trim() } ?: emptyList()
-val forgeVersions = providers.gradleProperty("stonecutter_enabled_forge_versions").orNull?.split(",")?.map { it.trim() } ?: emptyList()
-val neoforgeVersions = providers.gradleProperty("stonecutter_enabled_neoforge_versions").orNull?.split(",")?.map { it.trim() } ?: emptyList()
+val commonVersions = providers.gradleProperty("stonecutter_enabled_common_versions").orNull?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList()
+val fabricVersions = providers.gradleProperty("stonecutter_enabled_fabric_versions").orNull?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList()
+val forgeVersions = providers.gradleProperty("stonecutter_enabled_forge_versions").orNull?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList()
+val neoforgeVersions = providers.gradleProperty("stonecutter_enabled_neoforge_versions").orNull?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList()
 val dists = mapOf(
 	"common" to commonVersions,
 	"fabric" to fabricVersions,
@@ -36,7 +36,7 @@ stonecutter {
 	create(rootProject) {
 		versions(*uniqueVersions.toTypedArray())
 
-		dists.forEach { (branchName, branchVersions) ->
+		dists.filterValues { it.isNotEmpty() }.forEach { (branchName, branchVersions) ->
 			branch(branchName) {
 				versions(*branchVersions.toTypedArray())
 			}
