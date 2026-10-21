@@ -52,6 +52,10 @@ assert 'CONFIG_ITEMS.put(rod.getId(), () -> FriendsAndFoes.getConfig().enableLig
 assert tabs.count("config.enableLightningRods") == len(rods)
 assert "config.enableLightningRodOxidation" not in tabs
 assert "if (config.enableLightningRods)" in groups
+# The earlier 1.21.1 fork intentionally places Wildfire Crown beside Turtle Shell.
+# Upstream synchronization once reverted this to NETHERITE_HELMET silently.
+assert 'after(entries, Items.TURTLE_HELMET, FriendsAndFoesItems.WILDFIRE_CROWN, true);' in tabs
+assert 'after(entries, Items.NETHERITE_HELMET, FriendsAndFoesItems.WILDFIRE_CROWN, true);' not in tabs
 for src in (rod, mixin):
     assert src.count("FriendsAndFoes.getConfig().enableLightningRods") >= 3
 assert "if (!config.enableLightningRods)" in recipes

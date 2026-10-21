@@ -86,7 +86,7 @@ public final class FriendsAndFoesCreativeTabs1211 {
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
-            after(entries, Items.NETHERITE_HELMET, FriendsAndFoesItems.WILDFIRE_CROWN, true);
+            after(entries, Items.TURTLE_HELMET, FriendsAndFoesItems.WILDFIRE_CROWN, true);
             ItemLike anchor = Items.TOTEM_OF_UNDYING;
             anchor = after(entries, anchor, FriendsAndFoesItems.TOTEM_OF_FREEZING, true);
             after(entries, anchor, FriendsAndFoesItems.TOTEM_OF_ILLUSION, true);
