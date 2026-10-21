@@ -72,20 +72,20 @@ public final class FriendsAndFoesItems
 
 	public static final Map<Identifier, BooleanSupplier> CONFIG_ITEMS = new HashMap<>();
 
-	public final static RegistryEntry<Item> BARNACLE_SPAWN_EGG = registerSpawnEgg("barnacle_spawn_egg", FriendsAndFoesEntityTypes.BARNACLE, 0xFF56847E, 0xFF27514B);
+	public final static RegistryEntry<Item> BARNACLE_SPAWN_EGG = registerSpawnEgg("barnacle_spawn_egg", () -> FriendsAndFoes.getConfig().enableBarnacle, FriendsAndFoesEntityTypes.BARNACLE, 0xFF56847E, 0xFF27514B);
 	//? if <= 1.21.8 {
-	/*public final static RegistryEntry<Item> COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem_spawn_egg", FriendsAndFoesEntityTypes.COPPER_GOLEM, 0xFF9A5038, 0xFFFFC998);
+	/*public final static RegistryEntry<Item> COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem_spawn_egg", () -> FriendsAndFoes.getConfig().enableCopperGolem, FriendsAndFoesEntityTypes.COPPER_GOLEM, 0xFF9A5038, 0xFFFFC998);
 	*///?}
-	public final static RegistryEntry<Item> CRAB_SPAWN_EGG = registerSpawnEgg("crab_spawn_egg", FriendsAndFoesEntityTypes.CRAB, 0xFF333077, 0xFFFE984B);
-	public final static RegistryEntry<Item> GLARE_SPAWN_EGG = registerSpawnEgg("glare_spawn_egg", FriendsAndFoesEntityTypes.GLARE, 0xFF70922D, 0xFF6A5227);
-	public final static RegistryEntry<Item> ICEOLOGER_SPAWN_EGG = registerSpawnEgg("iceologer_spawn_egg", FriendsAndFoesEntityTypes.ICEOLOGER, 0xFF173873, 0xFF949B9B);
-	public final static RegistryEntry<Item> ILLUSIONER_SPAWN_EGG = registerSpawnEgg("illusioner_spawn_egg", FriendsAndFoesEntityTypes.ILLUSIONER, 0xFF603E5C, 0xFF888E8E);
-	public final static RegistryEntry<Item> MAULER_SPAWN_EGG = registerSpawnEgg("mauler_spawn_egg", FriendsAndFoesEntityTypes.MAULER, 0xFF534F25, 0xFF817B39);
-	public final static RegistryEntry<Item> MOOBLOOM_SPAWN_EGG = registerSpawnEgg("moobloom_spawn_egg", FriendsAndFoesEntityTypes.MOOBLOOM, 0xFFF7EDC1, 0xFFFACA00);
-	public final static RegistryEntry<Item> PENGUIN_SPAWN_EGG = registerSpawnEgg("penguin_spawn_egg", FriendsAndFoesEntityTypes.PENGUIN, 0xFF28272E, 0xFFDDB244);
-	public final static RegistryEntry<Item> RASCAL_SPAWN_EGG = registerSpawnEgg("rascal_spawn_egg", FriendsAndFoesEntityTypes.RASCAL, 0xFF05736A, 0xFF8A521C);
-	public final static RegistryEntry<Item> TUFF_GOLEM_SPAWN_EGG = registerSpawnEgg("tuff_golem_spawn_egg", FriendsAndFoesEntityTypes.TUFF_GOLEM, 0xFFA0A297, 0xFF5D5D52);
-	public final static RegistryEntry<Item> WILDFIRE_SPAWN_EGG = registerSpawnEgg("wildfire_spawn_egg", FriendsAndFoesEntityTypes.WILDFIRE, 0xFF6C3100, 0xFFFFD528);
+	public final static RegistryEntry<Item> CRAB_SPAWN_EGG = registerSpawnEgg("crab_spawn_egg", () -> FriendsAndFoes.getConfig().enableCrab, FriendsAndFoesEntityTypes.CRAB, 0xFF333077, 0xFFFE984B);
+	public final static RegistryEntry<Item> GLARE_SPAWN_EGG = registerSpawnEgg("glare_spawn_egg", () -> FriendsAndFoes.getConfig().enableGlare, FriendsAndFoesEntityTypes.GLARE, 0xFF70922D, 0xFF6A5227);
+	public final static RegistryEntry<Item> ICEOLOGER_SPAWN_EGG = registerSpawnEgg("iceologer_spawn_egg", () -> FriendsAndFoes.getConfig().enableIceologer, FriendsAndFoesEntityTypes.ICEOLOGER, 0xFF173873, 0xFF949B9B);
+	public final static RegistryEntry<Item> ILLUSIONER_SPAWN_EGG = registerSpawnEgg("illusioner_spawn_egg", () -> FriendsAndFoes.getConfig().enableIllusioner, FriendsAndFoesEntityTypes.ILLUSIONER, 0xFF603E5C, 0xFF888E8E);
+	public final static RegistryEntry<Item> MAULER_SPAWN_EGG = registerSpawnEgg("mauler_spawn_egg", () -> FriendsAndFoes.getConfig().enableMauler, FriendsAndFoesEntityTypes.MAULER, 0xFF534F25, 0xFF817B39);
+	public final static RegistryEntry<Item> MOOBLOOM_SPAWN_EGG = registerSpawnEgg("moobloom_spawn_egg", () -> FriendsAndFoes.getConfig().enableMoobloom, FriendsAndFoesEntityTypes.MOOBLOOM, 0xFFF7EDC1, 0xFFFACA00);
+	public final static RegistryEntry<Item> PENGUIN_SPAWN_EGG = registerSpawnEgg("penguin_spawn_egg", () -> FriendsAndFoes.getConfig().enablePenguin, FriendsAndFoesEntityTypes.PENGUIN, 0xFF28272E, 0xFFDDB244);
+	public final static RegistryEntry<Item> RASCAL_SPAWN_EGG = registerSpawnEgg("rascal_spawn_egg", () -> FriendsAndFoes.getConfig().enableRascal, FriendsAndFoesEntityTypes.RASCAL, 0xFF05736A, 0xFF8A521C);
+	public final static RegistryEntry<Item> TUFF_GOLEM_SPAWN_EGG = registerSpawnEgg("tuff_golem_spawn_egg", () -> FriendsAndFoes.getConfig().enableTuffGolem, FriendsAndFoesEntityTypes.TUFF_GOLEM, 0xFFA0A297, 0xFF5D5D52);
+	public final static RegistryEntry<Item> WILDFIRE_SPAWN_EGG = registerSpawnEgg("wildfire_spawn_egg", () -> FriendsAndFoes.getConfig().enableWildfire, FriendsAndFoesEntityTypes.WILDFIRE, 0xFF6C3100, 0xFFFFD528);
 
 	public final static RegistryEntry<Item> BARNACLE_TOOTH = registerItem("barnacle_tooth", Item::new, Item.Properties::new);
 	public final static RegistryEntry<Item> BUTTERCUP = registerItem("buttercup", (properties) -> new BlockItem(FriendsAndFoesBlocks.BUTTERCUP.get(), properties), () -> new Item.Properties().stacksTo(64)/*? if >=26.3 {*/.compostable(ContextIntProviders.COMPOSTABLE_MEDIUM)/*?}*/);
@@ -119,13 +119,13 @@ public final class FriendsAndFoesItems
 	public final static RegistryEntry<Item> WAXED_OXIDIZED_COPPER_BUTTON = registerItem("waxed_oxidized_copper_button", () -> FriendsAndFoes.getConfig().enableCopperButtons, (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_OXIDIZED_COPPER_BUTTON.get(), properties), () -> new Item.Properties().stacksTo(64));
 
 	//? if <=1.21.8 {
-	/*public final static RegistryEntry<Item> EXPOSED_LIGHTNING_ROD = registerItem("exposed_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.EXPOSED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
-	public final static RegistryEntry<Item> WEATHERED_LIGHTNING_ROD = registerItem("weathered_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.WEATHERED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
-	public final static RegistryEntry<Item> OXIDIZED_LIGHTNING_ROD = registerItem("oxidized_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.OXIDIZED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
-	public final static RegistryEntry<Item> WAXED_LIGHTNING_ROD = registerItem("waxed_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
-	public final static RegistryEntry<Item> WAXED_EXPOSED_LIGHTNING_ROD = registerItem("waxed_exposed_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_EXPOSED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
-	public final static RegistryEntry<Item> WAXED_WEATHERED_LIGHTNING_ROD = registerItem("waxed_weathered_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_WEATHERED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
-	public final static RegistryEntry<Item> WAXED_OXIDIZED_LIGHTNING_ROD = registerItem("waxed_oxidized_lightning_rod", (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_OXIDIZED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	/*public final static RegistryEntry<Item> EXPOSED_LIGHTNING_ROD = registerItem("exposed_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.EXPOSED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	public final static RegistryEntry<Item> WEATHERED_LIGHTNING_ROD = registerItem("weathered_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.WEATHERED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	public final static RegistryEntry<Item> OXIDIZED_LIGHTNING_ROD = registerItem("oxidized_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.OXIDIZED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	public final static RegistryEntry<Item> WAXED_LIGHTNING_ROD = registerItem("waxed_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	public final static RegistryEntry<Item> WAXED_EXPOSED_LIGHTNING_ROD = registerItem("waxed_exposed_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_EXPOSED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	public final static RegistryEntry<Item> WAXED_WEATHERED_LIGHTNING_ROD = registerItem("waxed_weathered_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_WEATHERED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
+	public final static RegistryEntry<Item> WAXED_OXIDIZED_LIGHTNING_ROD = registerItem("waxed_oxidized_lightning_rod", () -> FriendsAndFoes.getConfig().enableLightningRodOxidation, (properties) -> new BlockItem(FriendsAndFoesBlocks.WAXED_OXIDIZED_LIGHTNING_ROD.get(), properties), () -> new Item.Properties().stacksTo(64));
 	*///?}
 
 	//? if >=1.21.5 {
@@ -183,11 +183,12 @@ public final class FriendsAndFoesItems
 
 	private static RegistryEntry<Item> registerSpawnEgg(
 		String id,
+		BooleanSupplier isEnabled,
 		Supplier<? extends EntityType<? extends Mob>> typeIn,
 		int primaryColorIn,
 		int secondaryColorIn
 	) {
-		return ITEMS.register(id, () -> {
+		var item = ITEMS.register(id, () -> {
 			//? if >= 1.21.9 {
 			var spawnEgg = new SpawnEggItem(new Item.Properties().spawnEgg(typeIn.get()).stacksTo(64).setId(ResourceKey.create(Registries.ITEM, FriendsAndFoes.makeID(id))));
 			 //?} else if >=1.21.4 {
@@ -202,6 +203,8 @@ public final class FriendsAndFoesItems
 
 			return spawnEgg;
 		});
+		CONFIG_ITEMS.put(item.getId(), isEnabled);
+		return item;
 	}
 
 	//? if <= 1.21.11 {

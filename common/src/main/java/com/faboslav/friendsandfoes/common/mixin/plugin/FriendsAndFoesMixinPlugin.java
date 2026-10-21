@@ -29,7 +29,8 @@ public class FriendsAndFoesMixinPlugin implements IMixinConfigPlugin
 		// Detecting the platform-specific mixin class keeps NeoForge and other
 		// Minecraft versions on their existing implementation.
 		if (mixinClassName.equals("com.faboslav.friendsandfoes.common.mixin.RecipeManagerMixin")
-			&& this.isClassAvailable("com.faboslav.friendsandfoes.fabric.mixin.RecipeManagerMixin")) {
+			&& (this.isClassAvailable("com.faboslav.friendsandfoes.fabric.mixin.RecipeManagerMixin")
+				|| this.isClassAvailable("com.faboslav.friendsandfoes.forge.mixin.RecipeManagerMixin"))) {
 			return false;
 		}
 

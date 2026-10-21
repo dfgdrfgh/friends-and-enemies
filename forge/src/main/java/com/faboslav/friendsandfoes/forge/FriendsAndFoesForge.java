@@ -165,6 +165,7 @@ public final class FriendsAndFoesForge
 				event::accept
 			)
 		);
+		FriendsAndFoesCreativeTabs1201.sort(event);
 	}
 
 	private static void onRegisterAttributes(EntityAttributeCreationEvent event) {

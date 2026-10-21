@@ -103,4 +103,4 @@ stonecutter {
 }
 
 if (IS_CI) stonecutter active null
-else stonecutter active "26.3" /* [SC] DO NOT EDIT */
+else stonecutter active "1.20.1" /* [SC] DO NOT EDIT */
