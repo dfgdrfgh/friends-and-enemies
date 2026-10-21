@@ -55,8 +55,19 @@ jobs:
                 id: gradle-properties
                 run: ./.github/scripts/parse-gradle-properties.sh ${{ matrix.version }}
 
+            -   name: "Check Fabric 1.21.1 fork options"
+                if: ${{ matrix.mod_loader == 'fabric' && matrix.version == '1.21.1' }}
+                run: python3 .github/scripts/check_fabric_1211_toggles.py
+
             -   name: "Run build"
                 run: ./gradlew :${{ matrix.mod_loader }}:${{ matrix.version }}:build
+            -   name: "Record original Fabric 1.21.1 JAR SHA-256"
+                if: ${{ matrix.mod_loader == 'fabric' && matrix.version == '1.21.1' }}
+                run: |
+                    echo "### Unmodified Gradle JAR checksums" >> "$GITHUB_STEP_SUMMARY"
+                    echo 'The JAR files retain their default Gradle names; GitHub wraps them in a ZIP artifact.' >> "$GITHUB_STEP_SUMMARY"
+                    sha256sum ./fabric/versions/1.21.1/build/libs/*.jar | tee -a "$GITHUB_STEP_SUMMARY"
+
 
             -   name: "Upload artifacts"
                 uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
