@@ -188,7 +188,7 @@ public final class FriendsAndFoesItems
 		int primaryColorIn,
 		int secondaryColorIn
 	) {
-		var item = ITEMS.register(id, () -> {
+		RegistryEntry<Item> item = ITEMS.register(id, () -> {
 			//? if >= 1.21.9 {
 			var spawnEgg = new SpawnEggItem(new Item.Properties().spawnEgg(typeIn.get()).stacksTo(64).setId(ResourceKey.create(Registries.ITEM, FriendsAndFoes.makeID(id))));
 			 //?} else if >=1.21.4 {
