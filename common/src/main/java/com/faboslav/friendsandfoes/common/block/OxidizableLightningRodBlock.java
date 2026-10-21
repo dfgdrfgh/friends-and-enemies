@@ -87,10 +87,10 @@ public final class OxidizableLightningRodBlock extends LightningRodBlock impleme
 		BlockHitResult hit
 	) {
 		//? if =1.21.1 {
-		/*if (!FriendsAndFoes.getConfig().enableLightningRods) {
+		if (!FriendsAndFoes.getConfig().enableLightningRods) {
 			return super.useWithoutItem(state, world, pos, player, hit);
 		}
-		*///?}
+		//?}
 		var actionResult = OnUseOxidizable.onOxidizableUse(state, world, pos, player, hit);
 
 		if (actionResult.consumesAction()) {
