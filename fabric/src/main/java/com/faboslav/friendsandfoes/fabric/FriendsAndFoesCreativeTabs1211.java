@@ -69,13 +69,13 @@ public final class FriendsAndFoesCreativeTabs1211 {
             after(entries, anchor, FriendsAndFoesItems.WAXED_OXIDIZED_COPPER_BUTTON, config.enableCopperButtons);
 
             anchor = Items.LIGHTNING_ROD;
-            anchor = after(entries, anchor, FriendsAndFoesItems.EXPOSED_LIGHTNING_ROD, config.enableLightningRodOxidation);
-            anchor = after(entries, anchor, FriendsAndFoesItems.WEATHERED_LIGHTNING_ROD, config.enableLightningRodOxidation);
-            anchor = after(entries, anchor, FriendsAndFoesItems.OXIDIZED_LIGHTNING_ROD, config.enableLightningRodOxidation);
-            anchor = after(entries, anchor, FriendsAndFoesItems.WAXED_LIGHTNING_ROD, config.enableLightningRodOxidation);
-            anchor = after(entries, anchor, FriendsAndFoesItems.WAXED_EXPOSED_LIGHTNING_ROD, config.enableLightningRodOxidation);
-            anchor = after(entries, anchor, FriendsAndFoesItems.WAXED_WEATHERED_LIGHTNING_ROD, config.enableLightningRodOxidation);
-            after(entries, anchor, FriendsAndFoesItems.WAXED_OXIDIZED_LIGHTNING_ROD, config.enableLightningRodOxidation);
+            anchor = after(entries, anchor, FriendsAndFoesItems.EXPOSED_LIGHTNING_ROD, config.enableLightningRods);
+            anchor = after(entries, anchor, FriendsAndFoesItems.WEATHERED_LIGHTNING_ROD, config.enableLightningRods);
+            anchor = after(entries, anchor, FriendsAndFoesItems.OXIDIZED_LIGHTNING_ROD, config.enableLightningRods);
+            anchor = after(entries, anchor, FriendsAndFoesItems.WAXED_LIGHTNING_ROD, config.enableLightningRods);
+            anchor = after(entries, anchor, FriendsAndFoesItems.WAXED_EXPOSED_LIGHTNING_ROD, config.enableLightningRods);
+            anchor = after(entries, anchor, FriendsAndFoesItems.WAXED_WEATHERED_LIGHTNING_ROD, config.enableLightningRods);
+            after(entries, anchor, FriendsAndFoesItems.WAXED_OXIDIZED_LIGHTNING_ROD, config.enableLightningRods);
         });
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {

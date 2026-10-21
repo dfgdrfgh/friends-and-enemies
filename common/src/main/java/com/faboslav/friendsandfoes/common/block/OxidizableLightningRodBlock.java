@@ -40,7 +40,11 @@ public final class OxidizableLightningRodBlock extends LightningRodBlock impleme
 		BlockPos pos,
 		RandomSource random
 	) {
-		if(FriendsAndFoes.getConfig().enableLightningRodOxidation) {
+		if(FriendsAndFoes.getConfig().enableLightningRodOxidation
+			//? if =1.21.1 {
+			&& FriendsAndFoes.getConfig().enableLightningRods
+			//?}
+		) {
 			//? if >= 1.21.1 {
 			this.changeOverTime(state, world, pos, random);
 			//?} else {
@@ -51,7 +55,11 @@ public final class OxidizableLightningRodBlock extends LightningRodBlock impleme
 
 	@Override
 	public boolean isRandomlyTicking(BlockState blockState) {
-		if(!FriendsAndFoes.getConfig().enableLightningRodOxidation) {
+		if(!FriendsAndFoes.getConfig().enableLightningRodOxidation
+			//? if =1.21.1 {
+			|| !FriendsAndFoes.getConfig().enableLightningRods
+			//?}
+		) {
 			return false;
 		}
 
@@ -78,6 +86,11 @@ public final class OxidizableLightningRodBlock extends LightningRodBlock impleme
 		^///?}
 		BlockHitResult hit
 	) {
+		//? if =1.21.1 {
+		/*if (!FriendsAndFoes.getConfig().enableLightningRods) {
+			return super.useWithoutItem(state, world, pos, player, hit);
+		}
+		*///?}
 		var actionResult = OnUseOxidizable.onOxidizableUse(state, world, pos, player, hit);
 
 		if (actionResult.consumesAction()) {
