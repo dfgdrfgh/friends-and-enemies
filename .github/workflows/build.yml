@@ -65,16 +65,32 @@ jobs:
                 if: ${{ matrix.mod_loader == 'fabric' && matrix.version == '1.21.1' }}
                 run: |
                     echo "### Unmodified Gradle JAR checksums" >> "$GITHUB_STEP_SUMMARY"
-                    echo 'The JAR files retain their default Gradle names; GitHub wraps them in a ZIP artifact.' >> "$GITHUB_STEP_SUMMARY"
+                    echo 'The Fabric 1.21.1 release is distributed as the original Gradle JAR, without an extra ZIP.' >> "$GITHUB_STEP_SUMMARY"
                     sha256sum ./fabric/versions/1.21.1/build/libs/*.jar | tee -a "$GITHUB_STEP_SUMMARY"
 
+
+            -   name: "Identify default Fabric 1.21.1 JAR"
+                id: default-fabric-jar
+                if: ${{ matrix.mod_loader == 'fabric' && matrix.version == '1.21.1' }}
+                shell: bash
+                run: |
+                    set -euo pipefail
+                    jar="./fabric/versions/1.21.1/build/libs/${{ steps.gradle-properties.outputs.MOD_ID }}-fabric-${{ steps.gradle-properties.outputs.MOD_VERSION }}+mc1.21.1.jar"
+                    if [ ! -f "$jar" ]; then
+                        echo "::error::The original Gradle release JAR is missing; no file will be renamed."
+                        ls -lah ./fabric/versions/1.21.1/build/libs/
+                        exit 1
+                    fi
+                    echo "path=$jar" >> "$GITHUB_OUTPUT"
 
             -   name: "Upload artifacts"
                 uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
                 with:
                     name: ${{ steps.gradle-properties.outputs.MOD_ID }}-${{ matrix.mod_loader }}-${{ steps.gradle-properties.outputs.MOD_VERSION }}+mc${{ matrix.version }}
                     if-no-files-found: error
-                    path: ./${{ matrix.mod_loader }}/versions/${{ matrix.version }}/build/libs/*.jar
+                    path: ${{ steps.default-fabric-jar.outputs.path || format('./{0}/versions/{1}/build/libs/*.jar', matrix.mod_loader, matrix.version) }}
+                    # 1.21.1 Fabric is a single original .jar, never a nested ZIP.
+                    archive: ${{ !(matrix.mod_loader == 'fabric' && matrix.version == '1.21.1') }}
 
     run-client:
         runs-on: ubuntu-latest
@@ -104,7 +120,8 @@ jobs:
             -   name: "Download artifacts"
                 uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
                 with:
-                    name: ${{ steps.gradle-properties.outputs.MOD_ID }}-${{ matrix.mod_loader }}-${{ steps.gradle-properties.outputs.MOD_VERSION }}+mc${{ matrix.version }}
+                    # Direct single-JAR artifacts are named after the actual Gradle file.
+                    name: ${{ (matrix.mod_loader == 'fabric' && matrix.version == '1.21.1') && format('{0}-{1}-{2}+mc{3}.jar', steps.gradle-properties.outputs.MOD_ID, matrix.mod_loader, steps.gradle-properties.outputs.MOD_VERSION, matrix.version) || format('{0}-{1}-{2}+mc{3}', steps.gradle-properties.outputs.MOD_ID, matrix.mod_loader, steps.gradle-properties.outputs.MOD_VERSION, matrix.version) }}
                     path: ./${{ matrix.mod_loader }}/versions/${{ matrix.version }}/build/libs
 
             -   name: "Copy mod jar to run/mods"
@@ -171,7 +188,8 @@ jobs:
             -   name: "Download artifacts"
                 uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
                 with:
-                    name: ${{ steps.gradle-properties.outputs.MOD_ID }}-${{ matrix.mod_loader }}-${{ steps.gradle-properties.outputs.MOD_VERSION }}+mc${{ matrix.version }}
+                    # Direct single-JAR artifacts are named after the actual Gradle file.
+                    name: ${{ (matrix.mod_loader == 'fabric' && matrix.version == '1.21.1') && format('{0}-{1}-{2}+mc{3}.jar', steps.gradle-properties.outputs.MOD_ID, matrix.mod_loader, steps.gradle-properties.outputs.MOD_VERSION, matrix.version) || format('{0}-{1}-{2}+mc{3}', steps.gradle-properties.outputs.MOD_ID, matrix.mod_loader, steps.gradle-properties.outputs.MOD_VERSION, matrix.version) }}
                     path: ./${{ matrix.mod_loader }}/versions/${{ matrix.version }}/build/libs
 
             -   name: "Copy mod jar to run/mods"
