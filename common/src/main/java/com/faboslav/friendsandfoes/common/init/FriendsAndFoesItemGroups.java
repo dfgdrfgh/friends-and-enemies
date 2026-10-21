@@ -65,7 +65,11 @@ public class FriendsAndFoesItemGroups
 				FriendsAndFoesItems.TUFF_GOLEM_SPAWN_EGG,
 				FriendsAndFoesItems.RASCAL_SPAWN_EGG,
 				FriendsAndFoesItems.WILDFIRE_SPAWN_EGG
-			).map(item -> item.get().getDefaultInstance()).forEach(event::add);
+			)
+			//? if =1.21.1 {
+			/*.filter(item -> FriendsAndFoesItems.CONFIG_ITEMS.getOrDefault(item.getId(), () -> true).getAsBoolean())
+			*///?}
+			.map(item -> item.get().getDefaultInstance()).forEach(event::add);
 		} else if (event.type() == AddItemGroupEntriesEvent.Type.NATURAL) {
 			Stream.of(
 				FriendsAndFoesItems.BUTTERCUP,
@@ -145,6 +149,9 @@ public class FriendsAndFoesItemGroups
 				).map(item -> item.get().getDefaultInstance()).forEach(event::add);
 			}
 
+			//? if =1.21.1 {
+			/*if (config.enableLightningRods) {
+			*///?}
 			//? if <=1.21.8 {
 			/*Stream.of(
 				FriendsAndFoesItems.EXPOSED_LIGHTNING_ROD,
@@ -155,6 +162,9 @@ public class FriendsAndFoesItemGroups
 				FriendsAndFoesItems.WAXED_WEATHERED_LIGHTNING_ROD,
 				FriendsAndFoesItems.WAXED_OXIDIZED_LIGHTNING_ROD
 			).map(item -> item.get().getDefaultInstance()).forEach(event::add);
+			*///?}
+			//? if =1.21.1 {
+			/*}
 			*///?}
 		} else if (event.type() == AddItemGroupEntriesEvent.Type.INGREDIENTS) {
 			Stream.of(

@@ -201,7 +201,11 @@ public abstract class LightningRodBlockMixin extends LightningRodBlockBlockMixin
 	public void friendsandfoes_hasRandomTicks(
 		BlockState state, CallbackInfoReturnable<Boolean> cir
 	) {
-		if(!FriendsAndFoes.getConfig().enableLightningRodOxidation) {
+		if(!FriendsAndFoes.getConfig().enableLightningRodOxidation
+			//? if =1.21.1 {
+			|| !FriendsAndFoes.getConfig().enableLightningRods
+			//?}
+		) {
 			cir.setReturnValue(false);
 		} else {
 			cir.setReturnValue(true);
@@ -217,7 +221,11 @@ public abstract class LightningRodBlockMixin extends LightningRodBlockBlockMixin
 		RandomSource random,
 		CallbackInfo ci
 	) {
-		if(FriendsAndFoes.getConfig().enableLightningRodOxidation) {
+		if(FriendsAndFoes.getConfig().enableLightningRodOxidation
+			//? if =1.21.1 {
+			&& FriendsAndFoes.getConfig().enableLightningRods
+			//?}
+		) {
 			//? if >= 1.21.1 {
 			((ChangeOverTimeBlock) this).changeOverTime(state, world, pos, random);
 			//?} else {
@@ -241,6 +249,11 @@ public abstract class LightningRodBlockMixin extends LightningRodBlockBlockMixin
 		CallbackInfoReturnable<InteractionResult> cir
 	)
 	{
+		//? if =1.21.1 {
+		/*if (!FriendsAndFoes.getConfig().enableLightningRods) {
+			return;
+		}
+		*///?}
 		var actionResult = OnUseOxidizable.onOxidizableUse(state, world, pos, player, hit);
 
 		if (actionResult.consumesAction()) {

@@ -111,6 +111,9 @@ public final class FriendsAndFoesConfig
 	public static final boolean ENABLE_POPLAR_BEEHIVE_DEFAULT_VALUE = true;
 	public static final boolean ENABLE_WARPED_BEEHIVE_DEFAULT_VALUE = true;
 	public static final boolean ENABLE_COPPER_BUTTONS = true;
+	//? if =1.21.1 {
+	/*public static final boolean ENABLE_LIGHTNING_RODS_DEFAULT_VALUE = true;
+	*///?}
 
 	public boolean enableBeekeeperVillagerProfession = ENABLE_BEEKEEPER_VILLAGER_PROFESSION_DEFAULT_VALUE;
 	public boolean generateBeekeeperAreaStructureInVillages = GENERATE_BEEKEEPER_AREA_STRUCTURE_IN_VILLAGES_DEFAULT_VALUE;
@@ -221,6 +224,9 @@ public final class FriendsAndFoesConfig
 	public boolean enablePoplarBeehive = ENABLE_POPLAR_BEEHIVE_DEFAULT_VALUE;
 	public boolean enableWarpedBeehive = ENABLE_WARPED_BEEHIVE_DEFAULT_VALUE;
 	public boolean enableCopperButtons = ENABLE_COPPER_BUTTONS;
+	//? if =1.21.1 {
+	/*public boolean enableLightningRods = ENABLE_LIGHTNING_RODS_DEFAULT_VALUE;
+	*///?}
 
 	public static void load() {
 		FriendsAndFoesConfigSerializer.load();

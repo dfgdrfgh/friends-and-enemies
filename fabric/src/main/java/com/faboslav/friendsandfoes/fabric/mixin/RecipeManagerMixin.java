@@ -75,6 +75,14 @@ public abstract class RecipeManagerMixin
             disabledRecipes.add(FriendsAndFoesItems.WAXED_OXIDIZED_COPPER_BUTTON.getId());
         }
 
+        // The vanilla lightning rod recipe is intentionally untouched.
+        if (!config.enableLightningRods) {
+            disabledRecipes.add(FriendsAndFoes.makeID("waxed_lightning_rod_from_honeycomb"));
+            disabledRecipes.add(FriendsAndFoes.makeID("waxed_exposed_lightning_rod_from_honeycomb"));
+            disabledRecipes.add(FriendsAndFoes.makeID("waxed_weathered_lightning_rod_from_honeycomb"));
+            disabledRecipes.add(FriendsAndFoes.makeID("waxed_oxidized_lightning_rod_from_honeycomb"));
+        }
+
         if (disabledRecipes.isEmpty()) {
             return;
         }
